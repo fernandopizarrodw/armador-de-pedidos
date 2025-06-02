@@ -1,16 +1,30 @@
 const CACHE_NAME = "pedido-carniceria-v1";
 const urlsToCache = [
-  "/",
   "/index.html",
-  "/style.css",
-  "/script.js",
-  "/icon-192.png",
-  "/icon-512.png"
+  "/images/icon-192.png",
+  "/images/icon-512.png"
 ];
 
 self.addEventListener("install", event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache))
+    caches.open(CACHE_NAME).then(cache => {
+      return cache.addAll(urlsToCache);
+    })
+  );
+});
+
+self.addEventListener("activate", event => {
+  event.waitUntil(
+    caches.keys().then(keys => {
+      return Promise.all(
+        keys.map(key => {
+          if (key !== CACHE_NAME) {
+            console.log("Eliminando caché antigua:", key);
+            return caches.delete(key);
+          }
+        })
+      );
+    })
   );
 });
 
