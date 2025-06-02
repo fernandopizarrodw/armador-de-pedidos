@@ -28,19 +28,15 @@
 
         }
 
-
-        body {
+      body {
             font-family: var(--font-main);
-            background: url("/images/fondo\ 4.png") no-repeat center/cover fixed;
+            background: url("images/fondo-4.png") no-repeat center/cover fixed;
             color: var(--main-color);
             padding: 1.5rem;
             text-shadow: 0 0 1px #000000;
             color: var(--main-color);
 
         }
-
-
-
 
         h1,
         span {
@@ -55,16 +51,13 @@
         .pedido {
             max-width: 600px;
             margin-inline: auto;
-            background: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.2);
             /* Semitransparente */
 
             padding: 2rem;
             border-radius: var(--radius);
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-
-
-
 
         .pedido__logo {
             display: block;
@@ -91,15 +84,12 @@
             text-align: center;
         }
 
-
-
         .boton:hover {
             filter: brightness(1.1);
             transform: scale(1.05);
             transition: 0.2s ease-out;
 
         }
-
 
         /* --- formulario --- */
         .pedido__form {
@@ -203,27 +193,13 @@
         .pedido__reset {
             background-color: #9973019c;
         }
-
         #send-whatsapp {
             background-color: #018933;
             flex: 1 1 100%;
             margin-top: 25px;
             border-radius: 50px;
         }
-
-
-
-        @media (prefers-color-scheme:dark) {
-            body {
-                color: #eee;
-            }
-
-
-
-            .pedido__btn {
-                background: #c62847;
-            }
-        }
+       
     </style>
 </head>
 
@@ -255,7 +231,6 @@
             <button id="send-whatsapp" class="boton">Enviar Por WhatsApp</button>
         </div>
     </main>
-
 
     <!-- =================================SCRIPT====================================== -->
     <script>
