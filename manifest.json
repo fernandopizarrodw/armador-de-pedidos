@@ -1,10 +1,15 @@
 {
   "name": "Generador de Pedidos Carnicería",
   "short_name": "Pedidos",
+  "id": "pedido-carniceria",
+  "description": "App para generar pedidos de carnicería de manera rápida y eficiente.",
   "start_url": ".",
+  "scope": "/",
   "display": "standalone",
+  "orientation": "portrait-primary",
   "background_color": "#ffffff",
   "theme_color": "#b71c1c",
+  "lang": "es-AR",
   "icons": [
     {
       "src": "images/icon-192.png",
@@ -14,6 +19,13 @@
     {
       "src": "images/icon-512.png",
       "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "images/screenshot1.png",
+      "sizes": "1080x1920",
       "type": "image/png"
     }
   ]
