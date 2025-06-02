@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Armador de Pedidos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json" />
+<meta name="theme-color" content="#b71c1c" />
+
+</head>
+
+<body>
+    
+    <main class="pedido">
+        <img src="images/hero portada.png" class="pedido__img" alt="">
+        <h1 class="pedido__title">José <br>[Armador de Pedidos]</h1>
+        <form class="pedido__form" id="form">
+            <select class="pedido__select" id="producto">
+                <option disabled selected>Elegí un producto</option>
+            </select>
+            <input type="text" class="pedido__input" id="cantidad" placeholder="Cantidad" />
+            <button class="pedido__btn" type="submit">Agregar al pedido</button>
+        </form>
+
+        <ul class="pedido__list" id="lista"></ul>
+
+        <div class="pedido__actions">
+            <button class="pedido__copy" id="copiar">Copiar pedido</button>
+            <button class="pedido__reset" id="reset">Reiniciar</button>
+        </div>
+
+        <button id="send-whatsapp">Enviar por WhatsApp</button>
+
+    </main>
+
+    <script src="script.js"></script>
+    <script src="service-worker.js"></script>
+</body>
+
+</html>
