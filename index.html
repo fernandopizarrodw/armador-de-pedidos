@@ -15,9 +15,6 @@
             --radius: 0.5rem;
             --font-main: "Poppins", sans-serif;
             --font-size-base: 1.1rem;
-
-
-
         }
 
         * {
@@ -78,7 +75,7 @@
         }
 
         .pedido__title {
-
+            font-size: 1rem;
             margin-inline: auto;
             margin-bottom: 1rem;
             text-align: center;
@@ -198,6 +195,7 @@
             flex: 1 1 100%;
             margin-top: 25px;
             border-radius: 50px;
+            padding: 0.8rem;
         }
        
     </style>
@@ -206,7 +204,7 @@
 <body>
     <main class="pedido">
         <img src="images/hero 2.png" alt="Logo" class="pedido__logo">
-        <h1 class="pedido__title glow-text">JOSÉ<br>[Armador de Pedidos]</h1>
+        <h1 class="pedido__title glow-text">[Armador de Pedidos]</h1>
 
         <!-- selector y carga -->
         <form class="pedido__form" id="form">
@@ -214,9 +212,6 @@
                 <option disabled selected>Elegí un producto</option>
             </select>
             <input type="text" class="pedido__input" id="cantidad" placeholder="Cantidad" inputmode="numeric" />
-
-
-
             <button class="pedido__btn boton" type="submit">Agregar</button>
         </form>
 
@@ -226,7 +221,6 @@
         <!-- acciones -->
         <div class="pedido__actions">
             <button class="pedido__copy boton" id="copiar">Copiar pedido</button>
-
             <button class="pedido__reset boton" id="reset">Reiniciar pedido</button>
             <button id="send-whatsapp" class="boton">Enviar Por WhatsApp</button>
         </div>
