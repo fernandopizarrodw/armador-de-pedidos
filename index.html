@@ -13,54 +13,93 @@
             --accent-color: #da3e52;
             --bg-color: #f9f9f9;
             --radius: 0.5rem;
-            --font-main: system-ui, sans-serif;
+            --font-main: "Poppins", sans-serif;
+            --font-size-base: 1.1rem;
+
+
+
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            font-size: var(--font-size-base);
+
         }
+
 
         body {
             font-family: var(--font-main);
             background: url("/images/fondo\ 4.png") no-repeat center/cover fixed;
             color: var(--main-color);
             padding: 1.5rem;
-            text-shadow: 0 0 1px #07cdff;
+            text-shadow: 0 0 1px #000000;
             color: var(--main-color);
+
         }
-        h1, span {
+
+
+
+
+        h1,
+        span {
             color: #000000;
+
         }
+
         h1 {
             margin-top: 15px;
         }
+
         .pedido {
             max-width: 600px;
             margin-inline: auto;
-            background: white;
+            background: rgba(255, 255, 255, 0.4);
+            /* Semitransparente */
+
             padding: 2rem;
-            
             border-radius: var(--radius);
-            box-shadow: 0 0 10px rgba(0, 0, 0, .05);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
+
+
 
         .pedido__logo {
             display: block;
             margin-inline: auto;
             width: 250px;
             max-width: 80%;
-            
+
             object-fit: contain;
-            
+
+        }
+
+        .glow-text {
+            font-size: 2rem;
+            font-weight: bold;
+            color: rgb(255, 255, 255);
+            /* Azul celeste */
+            text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 40px #0ff;
         }
 
         .pedido__title {
-            font-size: 1.5rem;
+
+            margin-inline: auto;
             margin-bottom: 1rem;
             text-align: center;
         }
+
+
+
+        .boton:hover {
+            filter: brightness(1.1);
+            transform: scale(1.05);
+            transition: 0.2s ease-out;
+
+        }
+
 
         /* --- formulario --- */
         .pedido__form {
@@ -68,16 +107,17 @@
             gap: .5rem;
             flex-wrap: wrap;
             margin-bottom: 1rem;
+
         }
 
         .pedido__select,
         .pedido__input,
         .pedido__btn {
             padding: .5rem;
-            border: 1px solid #ccc;
+            border: 1px solid black;
             border-radius: var(--radius);
-            font-size: 1rem;
-            
+
+
         }
 
         .pedido__select,
@@ -85,16 +125,27 @@
             flex: 1 1 40%;
         }
 
+        .pedido__input {
+            max-width: 100%;
+            border: 1px solid rgb(255, 0, 0);
+            padding: 0.7rem;
+            border-radius: var(--radius);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+
         .pedido__btn {
             background-color: var(--accent-color);
             color: #fff;
             cursor: pointer;
             flex: 1 1 100%;
             transition: .2s;
+
         }
 
         .pedido__btn:hover {
             filter: brightness(1.1);
+
         }
 
         /* --- lista --- */
@@ -115,11 +166,12 @@
 
         .pedido__delete {
             background: none;
-            border: none;
+
             color: #b71c1c;
             cursor: pointer;
             font-size: 1.1rem;
             line-height: 1;
+
         }
 
         /* --- acciones --- */
@@ -132,7 +184,7 @@
         .pedido__actions button {
             flex: 1;
             padding: .5rem;
-            border: none;
+            border: 1px solid rgba(0, 0, 0, 0.651);
             border-radius: var(--radius);
             font-size: 1rem;
             cursor: pointer;
@@ -153,20 +205,20 @@
         }
 
         #send-whatsapp {
-            background-color: #25d366;
+            background-color: #018933;
             flex: 1 1 100%;
             margin-top: 25px;
             border-radius: 50px;
         }
+
+
 
         @media (prefers-color-scheme:dark) {
             body {
                 color: #eee;
             }
 
-            .pedido {
-                background: #ffffff;
-            }
+
 
             .pedido__btn {
                 background: #c62847;
@@ -178,7 +230,7 @@
 <body>
     <main class="pedido">
         <img src="images/hero 2.png" alt="Logo" class="pedido__logo">
-        <h1 class="pedido__title">JOSÉ<br>[Armador de Pedidos]</h1>
+        <h1 class="pedido__title glow-text">JOSÉ<br>[Armador de Pedidos]</h1>
 
         <!-- selector y carga -->
         <form class="pedido__form" id="form">
@@ -186,7 +238,10 @@
                 <option disabled selected>Elegí un producto</option>
             </select>
             <input type="text" class="pedido__input" id="cantidad" placeholder="Cantidad" inputmode="numeric" />
-            <button class="pedido__btn" type="submit">Agregar</button>
+
+
+
+            <button class="pedido__btn boton" type="submit">Agregar</button>
         </form>
 
         <!-- lista -->
@@ -194,15 +249,20 @@
 
         <!-- acciones -->
         <div class="pedido__actions">
-            <button class="pedido__copy" id="copiar">Copiar pedido</button>
-            <button class="pedido__reset" id="reset">Reiniciar</button>
-            <button id="send-whatsapp">Enviar WhatsApp</button>
+            <button class="pedido__copy boton" id="copiar">Copiar pedido</button>
+
+            <button class="pedido__reset boton" id="reset">Reiniciar pedido</button>
+            <button id="send-whatsapp" class="boton">Enviar Por WhatsApp</button>
         </div>
     </main>
 
+
+    <!-- =================================SCRIPT====================================== -->
     <script>
         /* ---------- datos ---------- */
         const productos = ["asado", "vacío", "bife sin lomo", "bife chorizo", "cuadril", "paleta", "roastbeef", "colita", "peceto", "nalga", "bola", "cuadrada", "matambre", "entraña", "espinazo", "tortuguita", "tortuga", "palomita", "paloma", "tapa", "cima", "falda", "media completa", "media entera", "tapa asado", "falda puchero", "osobuco", "cajón pollo", "cajón patamuslo", "cajón suprema", "cajón huevo", "alita", "menudo", "alita y menudos", "menudo alita", "cajón alita", "cajón menudo", "picada comun", "picada especial", "grasa picada", "grasa", "patitas cerdo", "pernil", "paleta de cerdo", "carré", "provoleta", "parmesano", "carbon", "salchicha parrillera"].sort();
+
+        const productosPorKg = ["picada comun", "picada especial", "grasa picada", "grasa"];
 
         /* ---------- nodos ---------- */
         const select = document.getElementById('producto');
@@ -228,7 +288,10 @@
 
         /* ---------- init ---------- */
         productos.forEach(p => {
-            const o = document.createElement('option'); o.value = p; o.textContent = p; select.appendChild(o);
+            const o = document.createElement('option');
+            o.value = p;
+            o.textContent = p;
+            select.appendChild(o);
         });
 
         let pedido = JSON.parse(localStorage.getItem('pedido')) || [];
@@ -240,7 +303,8 @@
             const prod = select.value;
             const cant = cantidad.value.trim();
             if (!prod || !cant) return;
-            pedido.push(`${cant} ${prod}`);
+            const unidad = productosPorKg.includes(prod) ? "kg" : "";
+            pedido.push(`${cant} ${unidad} ${prod}`);
             guardar();
             render();
             cantidad.value = '';
@@ -262,7 +326,10 @@
             navigator.clipboard.writeText(texto).then(() => {
                 copiar.classList.add('copiado');
                 copiar.textContent = '¡Copiado!';
-                setTimeout(() => { copiar.classList.remove('copiado'); copiar.textContent = 'Copiar pedido'; }, 1500);
+                setTimeout(() => {
+                    copiar.classList.remove('copiado');
+                    copiar.textContent = 'Copiar pedido';
+                }, 1500);
             });
         });
 
@@ -276,7 +343,10 @@
 
         sendBtn.addEventListener('click', () => {
             const texto = pedido.join('%0A');
-            if (!texto) { alert('El pedido está vacío'); return; }
+            if (!texto) {
+                alert('El pedido está vacío');
+                return;
+            }
             const numero = '+5491168497526';
             const url = `https://wa.me/${numero}?text=${texto}`;
             window.open(url, '_blank');
@@ -286,6 +356,7 @@
             window.addEventListener('load', () => navigator.serviceWorker.register('service-worker.js'));
         }
     </script>
+
 </body>
 
 </html>
