@@ -25,9 +25,9 @@
 
         }
 
-      body {
+        body {
             font-family: var(--font-main);
-            background: url("images/fondo-4.png") no-repeat center/cover fixed;
+            background: url("images/fondo-3.png") no-repeat center/cover fixed;
             color: var(--main-color);
             padding: 1.5rem;
             text-shadow: 0 0 1px #000000;
@@ -35,9 +35,21 @@
 
         }
 
+        .body-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("images/fondo-3.png") no-repeat center/cover fixed;
+            filter: blur(4px);
+            /* Solo la imagen se desenfoca */
+            z-index: -1;
+        }
+
         h1,
         span {
-            color: #000000;
+            color: #ffffff;
 
         }
 
@@ -48,7 +60,7 @@
         .pedido {
             max-width: 600px;
             margin-inline: auto;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(49, 49, 49, 0.616);
             /* Semitransparente */
 
             padding: 2rem;
@@ -71,7 +83,7 @@
             font-weight: bold;
             color: rgb(255, 255, 255);
             /* Azul celeste */
-            text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 40px #0ff;
+            text-shadow: 0 0 10px rgb(0, 0, 0), 0 0 20px #0ff, 0 0 60px #0ff;
         }
 
         .pedido__title {
@@ -190,6 +202,7 @@
         .pedido__reset {
             background-color: #9973019c;
         }
+
         #send-whatsapp {
             background-color: #018933;
             flex: 1 1 100%;
@@ -197,7 +210,6 @@
             border-radius: 50px;
             padding: 0.8rem;
         }
-       
     </style>
 </head>
 
@@ -224,6 +236,8 @@
             <button class="pedido__reset boton" id="reset">Reiniciar pedido</button>
             <button id="send-whatsapp" class="boton">Enviar Por WhatsApp</button>
         </div>
+        <div class="body-bg"></div>
+
     </main>
 
     <!-- =================================SCRIPT====================================== -->
