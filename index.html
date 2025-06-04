@@ -4,341 +4,360 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Armador de Pedidos</title>
-    <link rel="manifest" href="manifest.json" />
-    <meta name="theme-color" content="#b71c1c" />
+    <title>Pedido de Carnes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <style>
-        :root {
-            --main-color: #000000;
-            --accent-color: #da3e52;
-            --bg-color: #f9f9f9;
-            --radius: 0.5rem;
-            --font-main: "Poppins", sans-serif;
-            --font-size-base: 1.1rem;
-        }
-
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-size: var(--font-size-base);
-
         }
 
         body {
-            font-family: var(--font-main);
-            background: url("images/fondo-3.png") no-repeat center/cover fixed;
-            color: var(--main-color);
-            padding: 1.5rem;
-            text-shadow: 0 0 1px #000000;
-            color: var(--main-color);
-
+            font-family: 'Alumni Sans SC';
+            background: url('images/fondo-3.png') center/cover no-repeat fixed;
+            color: #333;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+            backdrop-filter: blur(2px);
         }
 
-        .body-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url("images/fondo-3.png") no-repeat center/cover fixed;
-            filter: blur(4px);
-            /* Solo la imagen se desenfoca */
-            z-index: -1;
+        header {
+            text-align: center;
+            margin-bottom: 1rem;
         }
 
-        h1,
-        span {
-            color: #ffffff;
+        header img {
+            max-width: 200px;
 
         }
 
         h1 {
-            margin-top: 15px;
-        }
-
-        .pedido {
-            max-width: 600px;
-            margin-inline: auto;
-            background: rgba(49, 49, 49, 0.616);
-            /* Semitransparente */
-
-            padding: 2rem;
-            border-radius: var(--radius);
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .pedido__logo {
-            display: block;
-            margin-inline: auto;
-            width: 250px;
-            max-width: 80%;
-
-            object-fit: contain;
-
-        }
-
-        .glow-text {
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: bold;
             color: rgb(255, 255, 255);
             /* Azul celeste */
-            text-shadow: 0 0 10px rgb(0, 0, 0), 0 0 20px #0ff, 0 0 60px #0ff;
-        }
-
-        .pedido__title {
-            font-size: 1rem;
+            text-shadow: 0 0 10px #0ff, 0 0 20px rgb(0, 0, 0), 0 4px 40px #0ff;
+            background-color: #333;
+            width: fit-content;
+            border-radius: 15px;
+            padding: 0 5px;
             margin-inline: auto;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .boton:hover {
-            filter: brightness(1.1);
-            transform: scale(1.05);
-            transition: 0.2s ease-out;
-
-        }
-
-        /* --- formulario --- */
-        .pedido__form {
-            display: flex;
-            gap: .5rem;
-            flex-wrap: wrap;
-            margin-bottom: 1rem;
-
-        }
-
-        .pedido__select,
-        .pedido__input,
-        .pedido__btn {
-            padding: .5rem;
-            border: 1px solid black;
-            border-radius: var(--radius);
 
 
         }
 
-        .pedido__select,
-        .pedido__input {
-            flex: 1 1 40%;
-        }
-
-        .pedido__input {
-            max-width: 100%;
-            border: 1px solid rgb(255, 0, 0);
-            padding: 0.7rem;
-            border-radius: var(--radius);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        #lista-productos {
+            flex: 1;
+            overflow-y: auto;
+            padding-right: 0.5rem;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.85);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
 
-        .pedido__btn {
-            background-color: var(--accent-color);
-            color: #fff;
-            cursor: pointer;
-            flex: 1 1 100%;
-            transition: .2s;
+        h2 {
+            margin: 1rem 0 0.5rem 0.5rem;
+            font-size: 1.6rem;
+            color: #222;
+            font-weight: 600;
+            font-style: oblique;
+            text-transform: capitalize;
 
         }
 
-        .pedido__btn:hover {
-            filter: brightness(1.1);
-
-        }
-
-        /* --- lista --- */
-        .pedido__list {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 1rem;
-        }
-
-        .pedido__item {
+        .producto {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: .5rem;
-            border-bottom: 1px dashed #ccc;
-            gap: .5rem;
+            background: white;
+            margin: 0.5rem 0;
+            padding: 1rem;
+            border-radius: 6px;
+            font-size: 2rem;
+            font-weight: 500;
         }
 
-        .pedido__delete {
-            background: none;
+        .controles {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
 
-            color: #b71c1c;
+        .controles button {
+            font-size: 2rem;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 6px;
+            background: #9c0000;
+            color: white;
             cursor: pointer;
-            font-size: 1.1rem;
-            line-height: 1;
-
         }
 
-        /* --- acciones --- */
-        .pedido__actions {
+        .controles button:hover {
+            background: #555;
+        }
+
+        .controles span {
+            font-size: 1.6rem;
+            min-width: 2rem;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .acciones {
+
+            padding-top: 1rem;
+            border-top: 2px solid #ddd;
+            margin-top: 1rem;
             display: flex;
             flex-wrap: wrap;
-            gap: .5rem;
+            /* Permite que los botones se ajusten en pantallas pequeñas */
+            justify-content: center;
+            gap: 10px;
+            max-width: 100%;
         }
 
-        .pedido__actions button {
+        .acciones button {
             flex: 1;
-            padding: .5rem;
-            border: 1px solid rgba(0, 0, 0, 0.651);
-            border-radius: var(--radius);
-            font-size: 1rem;
+            font-size: 1.6rem;
+            border: none;
+            color: white;
+            border-radius: 8px;
             cursor: pointer;
-            transition: .2s;
-            color: #fff;
+            font-family: 'Alumni Sans SC';
+            text-transform: uppercase;
         }
 
-        .pedido__copy {
-            background-color: #004c98;
+        .acciones button:first-child {
+            background: #007bff;
+            flex-direction: row-reverse;
+
         }
 
-        .pedido__copy.copiado {
-            background-color: #2e6c7d;
+        .acciones button:first-child:hover {
+            background: #0056b3;
+
         }
 
-        .pedido__reset {
-            background-color: #9973019c;
+        .acciones button:last-child {
+            background: #28a745;
+            padding-left: 15px;
+
         }
 
-        #send-whatsapp {
-            background-color: #018933;
-            flex: 1 1 100%;
-            margin-top: 25px;
-            border-radius: 50px;
-            padding: 0.8rem;
+        .acciones button:last-child:hover {
+            background: #218838;
+        }
+
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .modal ul {
+            margin: 1rem 0;
+            font-size: 2rem;
+        }
+
+        .modal-content button {
+            background: #0032a7;
+            padding: 0.6rem 1.2rem;
+            color: white;
+            font-size: 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Alumni Sans SC';
+            text-transform: uppercase;
+        }
+
+        .modal-content button:hover {
+            background: #555;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #ffffff;
         }
     </style>
 </head>
 
 <body>
-    <main class="pedido">
-        <img src="images/hero-2.png" alt="Logo" class="pedido__logo">
-        <h1 class="pedido__title glow-text">[Armador de Pedidos]</h1>
+    <header>
+        <img src="images/hero-2.png" alt="Logo">
+        <h1>Armador de pedidos</h1>
+    </header>
 
-        <!-- selector y carga -->
-        <form class="pedido__form" id="form">
-            <select class="pedido__select" id="producto">
-                <option disabled selected>Elegí un producto</option>
-            </select>
-            <input type="text" class="pedido__input" id="cantidad" placeholder="Cantidad" inputmode="numeric" />
-            <button class="pedido__btn boton" type="submit">Agregar</button>
-        </form>
+    <div id="lista-productos"></div>
 
-        <!-- lista -->
-        <ul class="pedido__list" id="lista"></ul>
+    <div class="acciones">
+        <button onclick="chequearPedido()"
+            style="display: flex; align-items: center; justify-content: center; gap: 8px;">
 
-        <!-- acciones -->
-        <div class="pedido__actions">
-            <button class="pedido__copy boton" id="copiar">Copiar pedido</button>
-            <button class="pedido__reset boton" id="reset">Reiniciar pedido</button>
-            <button id="send-whatsapp" class="boton">Enviar Por WhatsApp</button>
+            <dotlottie-player src="https://lottie.host/9987ffbc-018d-4e84-866f-c549aa87eb68/oghjVO3GBf.lottie"
+                background="transparent" speed="1" style="width: 100px; height: 100px;" loop autoplay>
+            </dotlottie-player>
+
+            Chequear Pedido
+        </button>
+
+        <button onclick="enviarWhatsApp()"
+            style="display: flex; align-items: center; justify-content: center; gap: 20px;">
+
+            <dotlottie-player src="https://lottie.host/e2fb23cb-bab9-40be-be89-8d61340df177/wBScGuE6gZ.lottie" speed="1"
+                style="width: 65px; height: 65px; margin-top: 5px;" loop autoplay>
+            </dotlottie-player>
+
+            Enviar por WhatsApp
+        </button>
+    </div>
+
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <h2>Resumen del Pedido</h2>
+            <ul id="resumen"></ul>
+            <button onclick="cerrarModal()">Cerrar</button>
         </div>
-        <div class="body-bg"></div>
+    </div>
 
-    </main>
+    <footer>
+        Creado por Fernando Pizarro.🎸
+    </footer>
 
-    <!-- =================================SCRIPT====================================== -->
     <script>
-        /* ---------- datos ---------- */
-        const productos = ["asado", "vacío", "bife sin lomo", "bife con lomo", "bife de chorizo", "cuadril", "paleta", "roastbeef", "colita de cuadril", "peceto", "nalga", "bola de lomo", "cuadrada", "matambre", "entraña", "espinazo", "tortuguita", "palomita", "tapa de asado", "cima", "falda","picada común", "picada especial", "grasa picada", "media completa", "media entera", "falda puchero", "osobuco", "cajón de pollo", "cajón de patamuslo", "cajón de suprema", "cajón de huevo", "alitas", "alitas y menudos", "patitas cerdo", "pernil", "paleta de cerdo", "carré", "provoleta", "parmesano", "carbon", "salchicha parrillera"].sort();
+        const productos = [
+            { nombre: 'asado', categoria: '🥩 Carnes vacunas' },
+            { nombre: 'vacio', categoria: '🥩 Carnes vacunas' },
+            { nombre: 'tapa de asado', categoria: '🥩 Carnes vacunas' },
+            { nombre: 'cima', categoria: '🥩 Carnes vacunas' },
+            { nombre: 'falda', categoria: '🥩 Carnes vacunas' },
+            { nombre: 'bife chorizo', categoria: '🥩 Carnes vacunas' },
+            { nombre: 'bife sin lomo', categoria: '🥩 Carnes vacunas' },
+            { nombre: 'cuadril', categoria: '🥩 Cortes tiernos' },
+            { nombre: 'colita de cuadril', categoria: '🥩 Cortes tiernos' },
+            { nombre: 'paleta', categoria: '🥩 Cortes tiernos' },
+            { nombre: 'roastbeef', categoria: '🥩 Cortes tiernos' },
+            { nombre: 'tortuguita', categoria: '🥩 Cortes tiernos' },
+            { nombre: 'palomita', categoria: '🥩 Cortes tiernos' },
+            { nombre: 'bola de lomo', categoria: '🥩 Cortes tiernos' },
+            { nombre: 'cuadrada', categoria: '🥩 Cortes tiernos' },
+            { nombre: 'nalga', categoria: '🥩 Cortes tiernos' },
+            { nombre: 'matambre', categoria: '🥩 Cortes tiernos' },
+            { nombre: 'entraña', categoria: '🥩 Cortes tiernos' },
+            { nombre: 'peceto', categoria: '🥩 Cortes tiernos' },
+            { nombre: 'osobuco', categoria: '🦴 Puchero y guiso' },
+            { nombre: 'espinazo', categoria: '🦴 Puchero y guiso' },
+            { nombre: 'picada comun (kg)', categoria: '🥩 Picadas', porKg: true },
+            { nombre: 'picada especial (kg)', categoria: '🥩 Picadas', porKg: true },
+            { nombre: 'cajón pollo', categoria: '🍗 Aves' },
+            { nombre: 'cajón patamuslo', categoria: '🍗 Aves' },
+            { nombre: 'cajón suprema', categoria: '🍗 Aves' },
+            { nombre: 'alita', categoria: '🍗 Aves' },
+            { nombre: 'alitas y menudos', categoria: '🍗 Aves' },
+            { nombre: 'media completa', categoria: '🧺 Otros' },
+            { nombre: 'media entera', categoria: '🧺 Otros' },
+            { nombre: 'grasa picada (kg)', categoria: '🧺 Otros', porKg: true },
+            { nombre: 'cajón huevo', categoria: '🧺 Otros' },
+            { nombre: 'parmesano', categoria: '🧺 Otros' },
+            { nombre: 'provoleta', categoria: '🧺 Otros' },
+            { nombre: 'salchicha parrillera', categoria: '🧺 Otros' },
+            { nombre: 'carré', categoria: '🧺 Otros' },
+            { nombre: 'paleta de cerdo', categoria: '🧺 Otros' },
+            { nombre: 'patitas cerdo', categoria: '🧺 Otros' },
+            { nombre: 'pernil', categoria: '🧺 Otros' },
+            { nombre: 'carbón', categoria: '🧺 Otros' }
+        ];
 
-        const productosPorKg = ["picada comun", "picada especial", "grasa picada"];
+        const cantidades = {};
 
-        /* ---------- nodos ---------- */
-        const select = document.getElementById('producto');
-        const cantidad = document.getElementById('cantidad');
-        const lista = document.getElementById('lista');
-        const form = document.getElementById('form');
-        const copiar = document.getElementById('copiar');
-        const reset = document.getElementById('reset');
-        const sendBtn = document.getElementById('send-whatsapp');
+        function renderLista() {
+            const contenedor = document.getElementById('lista-productos');
+            contenedor.innerHTML = '';
+            let categoriaActual = '';
 
-        /* ---------- helpers ---------- */
-        const guardar = () => localStorage.setItem('pedido', JSON.stringify(pedido));
+            productos.forEach(p => {
+                if (p.categoria !== categoriaActual) {
+                    categoriaActual = p.categoria;
+                    const titulo = document.createElement('h2');
+                    titulo.textContent = categoriaActual;
+                    contenedor.appendChild(titulo);
+                }
 
-        const render = () => {
-            lista.innerHTML = '';
-            pedido.forEach((item, idx) => {
-                const li = document.createElement('li');
-                li.className = 'pedido__item';
-                li.innerHTML = `<span>${item}</span><button class="pedido__delete" data-index="${idx}" title="Eliminar">✖</button>`;
-                lista.appendChild(li);
+                cantidades[p.nombre] = 0;
+
+                const item = document.createElement('div');
+                item.className = 'producto';
+                item.innerHTML = `
+          <span>${p.nombre}</span>
+          <div class="controles">
+            <button onclick="cambiarCantidad('${p.nombre}', ${p.porKg ? -5 : -1})">−</button>
+            <span id="cant-${p.nombre}">0</span>
+            <button onclick="cambiarCantidad('${p.nombre}', ${p.porKg ? 5 : 1})">+</button>
+          </div>
+        `;
+                contenedor.appendChild(item);
             });
-        };
-
-        /* ---------- init ---------- */
-        productos.forEach(p => {
-            const o = document.createElement('option');
-            o.value = p;
-            o.textContent = p;
-            select.appendChild(o);
-        });
-
-        let pedido = JSON.parse(localStorage.getItem('pedido')) || [];
-        render();
-
-        /* ---------- eventos ---------- */
-        form.addEventListener('submit', e => {
-            e.preventDefault();
-            const prod = select.value;
-            const cant = cantidad.value.trim();
-            if (!prod || !cant) return;
-            const unidad = productosPorKg.includes(prod) ? "kg" : "";
-            pedido.push(`${cant} ${unidad} ${prod}`);
-            guardar();
-            render();
-            cantidad.value = '';
-            cantidad.focus();
-            select.selectedIndex = 0;
-        });
-
-        lista.addEventListener('click', e => {
-            if (e.target.matches('.pedido__delete')) {
-                const index = +e.target.dataset.index;
-                pedido.splice(index, 1);
-                guardar();
-                render();
-            }
-        });
-
-        copiar.addEventListener('click', () => {
-            const texto = pedido.join('\n');
-            navigator.clipboard.writeText(texto).then(() => {
-                copiar.classList.add('copiado');
-                copiar.textContent = '¡Copiado!';
-                setTimeout(() => {
-                    copiar.classList.remove('copiado');
-                    copiar.textContent = 'Copiar pedido';
-                }, 1500);
-            });
-        });
-
-        reset.addEventListener('click', () => {
-            if (confirm('¿Borrar todo el pedido?')) {
-                pedido = [];
-                guardar();
-                render();
-            }
-        });
-
-        sendBtn.addEventListener('click', () => {
-            const texto = pedido.join('%0A');
-            if (!texto) {
-                alert('El pedido está vacío');
-                return;
-            }
-            const numero = '+5491168497526';
-            const url = `https://wa.me/${numero}?text=${texto}`;
-            window.open(url, '_blank');
-        });
-
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => navigator.serviceWorker.register('service-worker.js'));
         }
+
+        function cambiarCantidad(nombre, delta) {
+            cantidades[nombre] = Math.max(0, cantidades[nombre] + delta);
+            document.getElementById(`cant-${nombre}`).textContent = cantidades[nombre];
+        }
+
+        function chequearPedido() {
+            const resumen = document.getElementById('resumen');
+            resumen.innerHTML = '';
+            Object.entries(cantidades).forEach(([nombre, cant]) => {
+                if (cant > 0) {
+                    const li = document.createElement('li');
+                    li.textContent = `${cant} x ${nombre}`;
+                    resumen.appendChild(li);
+                }
+            });
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        function cerrarModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        function enviarWhatsApp() {
+            const texto = Object.entries(cantidades)
+                .filter(([, cant]) => cant > 0)
+                .map(([nombre, cant]) => `${cant} x ${nombre}`)
+                .join('%0A');
+            const numero = '+5491168497526';
+            const url = `https://wa.me/?text=${texto}`;
+            window.open(url, '_blank');
+        }
+
+        renderLista();
     </script>
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
 
 </body>
 
