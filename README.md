@@ -2,7 +2,7 @@
 
 This is a simple and effective web app for creating and managing product orders — designed specifically for butcher shops, grocery stores, or similar small businesses. Built with HTML, CSS, and vanilla JavaScript, and fully functional as a mobile-optimized Progressive Web App (PWA).
 
-![App Screenshot](./screenshot.jpg)
+![App Screenshot](/screenshot-mobile.png)
 
 ## 📱 Features
 
