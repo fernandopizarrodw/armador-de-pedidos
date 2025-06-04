@@ -4,12 +4,20 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Armador de pedidos de carne: fácil, rápido y adaptado para celulares. Creado por Fernando Pizarro.">
     <title>Pedido de Carnes</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
-        <link rel="manifest" href="manifest.json">
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&display=swap"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&display=swap">
+    </noscript>
+
+    <link rel="manifest" href="manifest.json">
 
     <style>
         * {
@@ -20,7 +28,7 @@
 
         body {
             font-family: 'Alumni Sans SC';
-            background: url('images/fondo-3.png') center/cover no-repeat fixed;
+            background: url('images/fondo-3.webp') center/cover no-repeat fixed;
             color: #333;
             height: 100vh;
             display: flex;
@@ -155,7 +163,7 @@
             padding-bottom: 1rem;
             padding-left: 0.5rem;
             padding-right: 0.5rem;
-            
+
 
         }
 
@@ -174,7 +182,7 @@
 
         .modal-content {
             background: white;
-            padding: 2rem;
+            padding: 1rem;
             border-radius: 10px;
             max-width: 90%;
             max-height: 80vh;
@@ -187,7 +195,7 @@
         }
 
         .modal-content button {
-            background: #0032a7;
+            background: #62003b;
             padding: 0.6rem 1.2rem;
             color: white;
             font-size: 1.5rem;
@@ -213,7 +221,7 @@
 
 <body>
     <header>
-        <img src="images/hero-2.png" alt="Logo">
+        <img src="images/hero-2.webp" alt="Logo" lazy-loading>
         <h1>Armador de pedidos</h1>
     </header>
 
@@ -246,7 +254,7 @@
         <div class="modal-content">
             <h2>Resumen del Pedido</h2>
             <ul id="resumen"></ul>
-            <button onclick="cerrarModal()">Cerrar</button>
+            <button onclick="cerrarModal()">Salir</button>
         </div>
     </div>
 

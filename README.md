@@ -37,9 +37,88 @@ This is a simple and effective web app for creating and managing product orders 
 
 👉 [Open the App](https://fernandopizarrodw.github.io/armador-de-pedidos/)
 
-## 📸 Screenshot
+## 📸 Screenshot# Order Builder – Butcher Shop App 🥩📲
 
-![Mobile](./images/screenshot-mobile.png)
+A fast, simple, and mobile-first web app for creating meat and grocery orders — perfect for butcher shops, local stores, or small delivery businesses.
+
+Built entirely with **HTML, CSS, and vanilla JavaScript**, fully installable as a **Progressive Web App (PWA)** and optimized for performance 💨.
+
+![App Screenshot](./images/screenshot-mobile.png)
+
+---
+
+## ✨ Main Features
+
+- ✅ **Fixed product list** with large + / − buttons for easy quantity selection.
+- ✅ Products sold by kilogram increase in steps of 5 (5kg, 10kg, etc.).
+- ✅ **Order summary modal** shows only selected products.
+- ✅ **Send to WhatsApp** button with auto-generated message.
+- ✅ **Mobile-first UI**, designed for larger fingers and full-screen use.
+- ✅ **PWA-ready**: can be installed on your phone, works offline.
+- ✅ Animated **Lottie icons** to enhance user experience.
+
+---
+
+## 📱 Tech Stack
+
+- HTML5 + CSS3
+- JavaScript (Vanilla)
+- Lottie Player (`@dotlottie/player-component`)
+- PWA: `manifest.json` + Service Worker
+- GitHub Pages for hosting
+- Performance tuning (Lighthouse/PageSpeed)
+
+---
+
+## 🚀 How to Use
+
+1. Tap the plus/minus buttons to select quantities.
+2. Press **Check Order** to view the summary.
+3. Press **Send via WhatsApp** to open your order in WhatsApp.
+4. The app resets automatically on reload.
+5. Installable as an app from your browser (PWA).
+
+---
+
+## 🛠️ Performance & Optimization
+
+- Fonts loaded asynchronously (avoids render blocking).
+- **Lazy-load for Lottie animations** using IntersectionObserver.
+- Lightweight and fast to load.
+- PageSpeed Mobile score: **92+ / 100** ✔️
+
+---
+
+## 📁 Key Files
+
+- `/index.html` — Main app file
+- `/manifest.json` — App manifest
+- `/service-worker.js` — Enables offline support
+- `/images/` — Logo, background, screenshots, icons
+
+---
+
+## 🔗 Live Demo
+
+👉 [Open App](https://fernandopizarrodw.github.io/armador-de-pedidos/)
+
+---
+
+## 👨‍💻 Author
+
+**Fernando Pizarro**  
+Frontend Developer · Musician · Multimedia Editor  
+
+- GitHub: [@fernandopizarrodw](https://github.com/fernandopizarrodw)  
+- LinkedIn: [fernandopizarro-dev](https://www.linkedin.com/in/fernandopizarro-dev/)  
+- Frontend Mentor: [@fernandopizarrodw](https://www.frontendmentor.io/profile/fernandopizarrodw)
+
+---
+
+Made with 💻 + 🎸 + ☕ in Argentina 🇦🇷
+
+
+![Mobile](/screenshot-mobile.png)
 
 ## 👨‍💻 Author
 
