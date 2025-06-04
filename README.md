@@ -43,7 +43,7 @@ A fast, simple, and mobile-first web app for creating meat and grocery orders â€
 
 Built entirely with **HTML, CSS, and vanilla JavaScript**, fully installable as a **Progressive Web App (PWA)** and optimized for performance ðŸ’¨.
 
-![App Screenshot](./images/screenshot-mobile.png)
+![App Screenshot](/screenshot-mobile.png)
 
 ---
 
