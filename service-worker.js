@@ -1,8 +1,10 @@
-const CACHE_NAME = "pedido-carniceria-v1";
+const CACHE_NAME = "pedido-carniceria-v2";
 const urlsToCache = [
   "/index.html",
   "/images/icon-192.png",
-  "/images/icon-512.png"
+  "/images/icon-512.png",
+  "/images/fondo-3.png",
+  "/images/hero-2.png"
 ];
 
 self.addEventListener("install", event => {
