@@ -222,6 +222,11 @@
         <img src="images/hero-2.webp" alt="Logo" lazy-loading>
         <h1>Armador de pedidos</h1>
     </header>
+    <div style="text-align: right; margin-bottom: 1rem;">
+    <button onclick="borrarPedido()" style="background: #ff0000; color: white; border: 3px solid; border-radius: 50px; padding: 0rem 0.5rem; font-size: 2rem; font-family: 'Alumni Sans SC'; cursor: pointer;">
+        Borrar Pedido
+    </button>
+</div>
 
     <div id="lista-productos"></div>
 
@@ -260,115 +265,135 @@
         Creado por Fernando Pizarro.🎸
     </footer>
 
-    <script>
-        const productos = [
-            { nombre: 'asado', categoria: '🥩 Carnes vacunas' },
-            { nombre: 'vacio', categoria: '🥩 Carnes vacunas' },
-            { nombre: 'tapa de asado', categoria: '🥩 Carnes vacunas' },
-            { nombre: 'cima', categoria: '🥩 Carnes vacunas' },
-            { nombre: 'falda', categoria: '🥩 Carnes vacunas' },
-            { nombre: 'bife chorizo', categoria: '🥩 Carnes vacunas' },
-            { nombre: 'bife sin lomo', categoria: '🥩 Carnes vacunas' },
-            { nombre: 'cuadril', categoria: '🥩 Cortes tiernos' },
-            { nombre: 'colita de cuadril', categoria: '🥩 Cortes tiernos' },
-            { nombre: 'paleta', categoria: '🥩 Cortes tiernos' },
-            { nombre: 'roastbeef', categoria: '🥩 Cortes tiernos' },
-            { nombre: 'tortuguita', categoria: '🥩 Cortes tiernos' },
-            { nombre: 'palomita', categoria: '🥩 Cortes tiernos' },
-            { nombre: 'bola de lomo', categoria: '🥩 Cortes tiernos' },
-            { nombre: 'cuadrada', categoria: '🥩 Cortes tiernos' },
-            { nombre: 'nalga', categoria: '🥩 Cortes tiernos' },
-            { nombre: 'matambre', categoria: '🥩 Cortes tiernos' },
-            { nombre: 'entraña', categoria: '🥩 Cortes tiernos' },
-            { nombre: 'peceto', categoria: '🥩 Cortes tiernos' },
-            { nombre: 'osobuco', categoria: '🦴 Puchero y guiso' },
-            { nombre: 'espinazo', categoria: '🦴 Puchero y guiso' },
-            { nombre: 'picada comun (kg)', categoria: '🥩 Picadas', porKg: true },
-            { nombre: 'picada especial (kg)', categoria: '🥩 Picadas', porKg: true },
-            { nombre: 'cajón pollo', categoria: '🍗 Aves' },
-            { nombre: 'cajón patamuslo', categoria: '🍗 Aves' },
-            { nombre: 'cajón suprema', categoria: '🍗 Aves' },
-            { nombre: 'alita', categoria: '🍗 Aves' },
-            { nombre: 'alitas y menudos', categoria: '🍗 Aves' },
-            { nombre: 'media completa', categoria: '🧺 Otros' },
-            { nombre: 'media entera', categoria: '🧺 Otros' },
-            { nombre: 'grasa picada (kg)', categoria: '🧺 Otros', porKg: true },
-            { nombre: 'cajón huevo', categoria: '🧺 Otros' },
-            { nombre: 'parmesano', categoria: '🧺 Otros' },
-            { nombre: 'provoleta', categoria: '🧺 Otros' },
-            { nombre: 'salchicha parrillera', categoria: '🧺 Otros' },
-            { nombre: 'carré', categoria: '🧺 Otros' },
-            { nombre: 'paleta de cerdo', categoria: '🧺 Otros' },
-            { nombre: 'patitas cerdo', categoria: '🧺 Otros' },
-            { nombre: 'pernil', categoria: '🧺 Otros' },
-            { nombre: 'carbón', categoria: '🧺 Otros' }
-        ];
+   <script>
+    const productos = [
+        { nombre: 'asado', categoria: '🥩 Carnes vacunas' },
+        { nombre: 'vacio', categoria: '🥩 Carnes vacunas' },
+        { nombre: 'tapa de asado', categoria: '🥩 Carnes vacunas' },
+        { nombre: 'cima', categoria: '🥩 Carnes vacunas' },
+        { nombre: 'falda', categoria: '🥩 Carnes vacunas' },
+        { nombre: 'bife chorizo', categoria: '🥩 Carnes vacunas' },
+        { nombre: 'bife sin lomo', categoria: '🥩 Carnes vacunas' },
+        { nombre: 'cuadril', categoria: '🥩 Cortes tiernos' },
+        { nombre: 'colita de cuadril', categoria: '🥩 Cortes tiernos' },
+        { nombre: 'paleta', categoria: '🥩 Cortes tiernos' },
+        { nombre: 'roastbeef', categoria: '🥩 Cortes tiernos' },
+        { nombre: 'tortuguita', categoria: '🥩 Cortes tiernos' },
+        { nombre: 'palomita', categoria: '🥩 Cortes tiernos' },
+        { nombre: 'bola de lomo', categoria: '🥩 Cortes tiernos' },
+        { nombre: 'cuadrada', categoria: '🥩 Cortes tiernos' },
+        { nombre: 'nalga', categoria: '🥩 Cortes tiernos' },
+        { nombre: 'matambre', categoria: '🥩 Cortes tiernos' },
+        { nombre: 'entraña', categoria: '🥩 Cortes tiernos' },
+        { nombre: 'peceto', categoria: '🥩 Cortes tiernos' },
+        { nombre: 'osobuco', categoria: '🦴 Puchero y guiso' },
+        { nombre: 'espinazo', categoria: '🦴 Puchero y guiso' },
+        { nombre: 'picada comun (kg)', categoria: '🥩 Picadas', porKg: true },
+        { nombre: 'picada especial (kg)', categoria: '🥩 Picadas', porKg: true },
+        { nombre: 'cajón pollo', categoria: '🍗 Aves' },
+        { nombre: 'cajón patamuslo', categoria: '🍗 Aves' },
+        { nombre: 'cajón suprema', categoria: '🍗 Aves' },
+        { nombre: 'alita', categoria: '🍗 Aves' },
+        { nombre: 'alitas y menudos', categoria: '🍗 Aves' },
+        { nombre: 'media completa', categoria: '🧺 Otros' },
+        { nombre: 'media entera', categoria: '🧺 Otros' },
+        { nombre: 'grasa picada (kg)', categoria: '🧺 Otros', porKg: true },
+        { nombre: 'cajón huevo', categoria: '🧺 Otros' },
+        { nombre: 'parmesano', categoria: '🧺 Otros' },
+        { nombre: 'provoleta', categoria: '🧺 Otros' },
+        { nombre: 'salchicha parrillera', categoria: '🧺 Otros' },
+        { nombre: 'carré', categoria: '🧺 Otros' },
+        { nombre: 'paleta de cerdo', categoria: '🧺 Otros' },
+        { nombre: 'patitas cerdo', categoria: '🧺 Otros' },
+        { nombre: 'pernil', categoria: '🧺 Otros' },
+        { nombre: 'carbón', categoria: '🧺 Otros' }
+    ];
 
-        const cantidades = {};
+    const cantidades = {};
 
-        function renderLista() {
-            const contenedor = document.getElementById('lista-productos');
-            contenedor.innerHTML = '';
-            let categoriaActual = '';
+    // 🟩 Cargar datos guardados si existen
+    const datosGuardados = localStorage.getItem('pedido');
+    if (datosGuardados) {
+        Object.assign(cantidades, JSON.parse(datosGuardados));
+    }
 
-            productos.forEach(p => {
-                if (p.categoria !== categoriaActual) {
-                    categoriaActual = p.categoria;
-                    const titulo = document.createElement('h2');
-                    titulo.textContent = categoriaActual;
-                    contenedor.appendChild(titulo);
-                }
+    function guardarPedidoEnLocalStorage() {
+        localStorage.setItem('pedido', JSON.stringify(cantidades));
+    }
 
+    function renderLista() {
+        const contenedor = document.getElementById('lista-productos');
+        contenedor.innerHTML = '';
+        let categoriaActual = '';
+
+        productos.forEach(p => {
+            if (p.categoria !== categoriaActual) {
+                categoriaActual = p.categoria;
+                const titulo = document.createElement('h2');
+                titulo.textContent = categoriaActual;
+                contenedor.appendChild(titulo);
+            }
+
+            if (!(p.nombre in cantidades)) {
                 cantidades[p.nombre] = 0;
+            }
 
-                const item = document.createElement('div');
-                item.className = 'producto';
-                item.innerHTML = `
-          <span>${p.nombre}</span>
-          <div class="controles">
-            <button onclick="cambiarCantidad('${p.nombre}', ${p.porKg ? -5 : -1})">−</button>
-            <span id="cant-${p.nombre}">0</span>
-            <button onclick="cambiarCantidad('${p.nombre}', ${p.porKg ? 5 : 1})">+</button>
-          </div>
-        `;
-                contenedor.appendChild(item);
-            });
-        }
+            const item = document.createElement('div');
+            item.className = 'producto';
+            item.innerHTML = `
+                <span>${p.nombre}</span>
+                <div class="controles">
+                    <button onclick="cambiarCantidad('${p.nombre}', ${p.porKg ? -5 : -1})">−</button>
+                    <span id="cant-${p.nombre}">${cantidades[p.nombre]}</span>
+                    <button onclick="cambiarCantidad('${p.nombre}', ${p.porKg ? 5 : 1})">+</button>
+                </div>
+            `;
+            contenedor.appendChild(item);
+        });
+    }
 
-        function cambiarCantidad(nombre, delta) {
-            cantidades[nombre] = Math.max(0, cantidades[nombre] + delta);
-            document.getElementById(`cant-${nombre}`).textContent = cantidades[nombre];
-        }
+    function cambiarCantidad(nombre, delta) {
+        cantidades[nombre] = Math.max(0, cantidades[nombre] + delta);
+        document.getElementById(`cant-${nombre}`).textContent = cantidades[nombre];
+        guardarPedidoEnLocalStorage(); // ✅ guarda cada cambio
+    }
 
-        function chequearPedido() {
-            const resumen = document.getElementById('resumen');
-            resumen.innerHTML = '';
-            Object.entries(cantidades).forEach(([nombre, cant]) => {
-                if (cant > 0) {
-                    const li = document.createElement('li');
-                    li.textContent = `${cant} x ${nombre}`;
-                    resumen.appendChild(li);
-                }
-            });
-            document.getElementById('modal').style.display = 'flex';
-        }
+    function chequearPedido() {
+        const resumen = document.getElementById('resumen');
+        resumen.innerHTML = '';
+        Object.entries(cantidades).forEach(([nombre, cant]) => {
+            if (cant > 0) {
+                const li = document.createElement('li');
+                li.textContent = `${cant} x ${nombre}`;
+                resumen.appendChild(li);
+            }
+        });
+        document.getElementById('modal').style.display = 'flex';
+    }
 
-        function cerrarModal() {
-            document.getElementById('modal').style.display = 'none';
-        }
+    function cerrarModal() {
+        document.getElementById('modal').style.display = 'none';
+    }
 
-        function enviarWhatsApp() {
-            const texto = Object.entries(cantidades)
-                .filter(([, cant]) => cant > 0)
-                .map(([nombre, cant]) => `${cant} x ${nombre}`)
-                .join('%0A');
-            const numero = '+5491168497526';
-            const url = `https://wa.me/?text=${texto}`;
-            window.open(url, '_blank');
-        }
+    function enviarWhatsApp() {
+        const texto = Object.entries(cantidades)
+            .filter(([, cant]) => cant > 0)
+            .map(([nombre, cant]) => `${cant} x ${nombre}`)
+            .join('%0A');
+        const url = `https://wa.me/?text=${texto}`;
+        window.open(url, '_blank');
+    }
 
-        renderLista();
-    </script>
+    function borrarPedido() {
+    if (confirm("¿Seguro que querés borrar todo el pedido?")) {
+        localStorage.removeItem('pedido');
+        location.reload(); // recarga la app limpia
+    }
+}
+
+    renderLista();
+</script>
+
     <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
     <script src="service-worker.js"></script>
 
