@@ -7,12 +7,10 @@
     <meta name="description"
         content="Armador de pedidos de carne: fácil, rápido y adaptado para celulares. Creado por Fernando Pizarro.">
     <title>Pedido de Carnes</title>
-    <!-- Preload y preconnect para mejorar LCP -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&display=swap" />
-<link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
 
     <link rel="manifest" href="manifest.json">
 
@@ -30,54 +28,48 @@
             height: 100vh;
             display: flex;
             flex-direction: column;
-            padding: 1rem;
+            padding: 0.5rem;
             backdrop-filter: blur(2px);
         }
 
         header {
             text-align: center;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         header img {
-            max-width: 200px;
-
+            max-width: 120px;
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             font-weight: bold;
             color: rgb(255, 255, 255);
-            /* Azul celeste */
             text-shadow: 0 0 10px #0ff, 0 0 20px rgb(0, 0, 0), 0 4px 40px #0ff;
             background-color: #333;
             width: fit-content;
-            border-radius: 15px;
+            border-radius: 10px;
             padding: 0 5px;
             margin-inline: auto;
-
-
         }
 
         #lista-productos {
             flex: 1;
             overflow-y: auto;
-            padding-right: 0.5rem;
+            padding-right: 0.3rem;
             border: 2px solid rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
+            border-radius: 8px;
             background: rgba(255, 255, 255, 0.85);
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-
         h2 {
-            margin: 1rem 0 0.5rem 0.5rem;
-            font-size: 1.6rem;
+            margin: 0.5rem 0 0.3rem 0.5rem;
+            font-size: 1.2rem;
             color: #222;
             font-weight: 600;
             font-style: oblique;
             text-transform: capitalize;
-
         }
 
         .producto {
@@ -85,27 +77,28 @@
             justify-content: space-between;
             align-items: center;
             background: white;
-            margin: 0.5rem 0;
-            padding: 1rem;
-            border-radius: 6px;
-            font-size: 2rem;
+            margin: 0.3rem 0;
+            padding: 0.4rem 0.6rem;
+            border-radius: 5px;
+            font-size: 1.3rem;
             font-weight: 500;
         }
 
         .controles {
             display: flex;
-            gap: 0.5rem;
+            gap: 0.3rem;
             align-items: center;
         }
 
         .controles button {
-            font-size: 2rem;
-            padding: 0.5rem 1rem;
+            font-size: 1.4rem;
+            padding: 0.2rem 0.6rem;
             border: none;
-            border-radius: 6px;
+            border-radius: 5px;
             background: #9c0000;
             color: white;
             cursor: pointer;
+            min-width: 32px;
         }
 
         .controles button:hover {
@@ -113,59 +106,78 @@
         }
 
         .controles span {
-            font-size: 1.6rem;
-            min-width: 2rem;
+            font-size: 1.3rem;
+            min-width: 1.5rem;
             text-align: center;
             display: inline-block;
         }
 
-        .acciones {
+        .btn-borrar {
+            text-align: right;
+            margin-bottom: 0.5rem;
+        }
 
-            padding-top: 1rem;
+        .btn-borrar button {
+            background: #ff0000;
+            color: white;
+            border: 2px solid;
+            border-radius: 50px;
+            padding: 0rem 0.4rem;
+            font-size: 1.3rem;
+            font-family: 'Alumni Sans SC';
+            cursor: pointer;
+        }
+
+        .acciones {
+            padding-top: 0.5rem;
             border-top: 2px solid #ddd;
-            margin-top: 1rem;
+            margin-top: 0.5rem;
             display: flex;
             flex-wrap: wrap;
-            /* Permite que los botones se ajusten en pantallas pequeñas */
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
             max-width: 100%;
         }
 
         .acciones button {
             flex: 1;
-            font-size: 1.6rem;
+            font-size: 1.2rem;
             border: none;
             color: white;
             border-radius: 8px;
             cursor: pointer;
             font-family: 'Alumni Sans SC';
             text-transform: uppercase;
+            padding: 0.5rem;
         }
 
         .acciones button:first-child {
             background: #007bff;
-            flex-direction: row-reverse;
-
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
         }
 
         .acciones button:first-child:hover {
             background: #0056b3;
-
         }
 
         .acciones button:last-child {
             background: #28a745;
-            padding-top: 1rem;
-            padding-bottom: 1rem;
-            padding-left: 0.5rem;
-            padding-right: 0.5rem;
-
-
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
         }
 
         .acciones button:last-child:hover {
             background: #218838;
+        }
+
+        .lottie-small {
+            width: 50px !important;
+            height: 50px !important;
         }
 
         .modal {
@@ -179,7 +191,7 @@
 
         .modal-content {
             background: white;
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 10px;
             max-width: 90%;
             max-height: 80vh;
@@ -188,15 +200,15 @@
 
         .modal ul {
             margin: 1rem 0;
-            font-size: 2rem;
+            font-size: 1.5rem;
             list-style: none;
         }
 
         .modal-content button {
             background: #62003b;
-            padding: 0.6rem 1.2rem;
+            padding: 0.5rem 1rem;
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -210,8 +222,8 @@
 
         footer {
             text-align: center;
-            margin-top: 1rem;
-            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
             color: #ffffff;
         }
     </style>
@@ -222,36 +234,28 @@
         <img src="images/hero-2.webp" alt="Logo" lazy-loading>
         <h1>Armador de pedidos</h1>
     </header>
-    <div style="text-align: right; margin-bottom: 1rem;">
-    <button onclick="borrarPedido()" style="background: #ff0000; color: white; border: 3px solid; border-radius: 50px; padding: 0rem 0.5rem; font-size: 2rem; font-family: 'Alumni Sans SC'; cursor: pointer;">
-        Borrar Pedido
-    </button>
-</div>
+    
+    <div class="btn-borrar">
+        <button onclick="borrarPedido()">Borrar Pedido</button>
+    </div>
 
     <div id="lista-productos"></div>
 
     <div class="acciones">
-        <button onclick="chequearPedido()"
-            style="display: flex; align-items: center; justify-content: center; gap: 8px;">
-
+        <button onclick="chequearPedido()">
             <dotlottie-player src="https://lottie.host/9987ffbc-018d-4e84-866f-c549aa87eb68/oghjVO3GBf.lottie"
-                background="transparent" speed="1" style="width: 100px; height: 100px;" loop autoplay>
+                background="transparent" speed="1" class="lottie-small" loop autoplay>
             </dotlottie-player>
-
             Chequear Pedido
         </button>
 
-        <button onclick="enviarWhatsApp()"
-            style="display: flex; align-items: center; justify-content: center; gap: 20px;">
-
+        <button onclick="enviarWhatsApp()">
             <dotlottie-player src="https://lottie.host/e2fb23cb-bab9-40be-be89-8d61340df177/wBScGuE6gZ.lottie" speed="1"
-                style="width: 65px; height: 65px; margin-top: 5px;" loop autoplay>
+                class="lottie-small" loop autoplay>
             </dotlottie-player>
-
             Enviar por WhatsApp
         </button>
     </div>
-
 
     <div class="modal" id="modal">
         <div class="modal-content">
@@ -274,6 +278,7 @@
         { nombre: 'falda', categoria: '🥩 Carnes vacunas' },
         { nombre: 'bife chorizo', categoria: '🥩 Carnes vacunas' },
         { nombre: 'bife sin lomo', categoria: '🥩 Carnes vacunas' },
+        { nombre: 'bife con lomo', categoria: '🥩 Carnes vacunas' },
         { nombre: 'cuadril', categoria: '🥩 Cortes tiernos' },
         { nombre: 'colita de cuadril', categoria: '🥩 Cortes tiernos' },
         { nombre: 'paleta', categoria: '🥩 Cortes tiernos' },
@@ -295,10 +300,9 @@
         { nombre: 'cajón suprema', categoria: '🍗 Aves' },
         { nombre: 'alita', categoria: '🍗 Aves' },
         { nombre: 'alitas y menudos', categoria: '🍗 Aves' },
-        { nombre: 'media completa', categoria: '🧺 Otros' },
-        { nombre: 'media entera', categoria: '🧺 Otros' },
         { nombre: 'grasa picada (kg)', categoria: '🧺 Otros', porKg: true },
         { nombre: 'cajón huevo', categoria: '🧺 Otros' },
+        { nombre: 'carbón', categoria: '🧺 Otros' },
         { nombre: 'parmesano', categoria: '🧺 Otros' },
         { nombre: 'provoleta', categoria: '🧺 Otros' },
         { nombre: 'salchicha parrillera', categoria: '🧺 Otros' },
@@ -306,12 +310,13 @@
         { nombre: 'paleta de cerdo', categoria: '🧺 Otros' },
         { nombre: 'patitas cerdo', categoria: '🧺 Otros' },
         { nombre: 'pernil', categoria: '🧺 Otros' },
-        { nombre: 'carbón', categoria: '🧺 Otros' }
+        { nombre: 'media completa', categoria: '🧺 Otros' },
+        { nombre: 'media entera', categoria: '🧺 Otros' },
+        
     ];
 
     const cantidades = {};
 
-    // 🟩 Cargar datos guardados si existen
     const datosGuardados = localStorage.getItem('pedido');
     if (datosGuardados) {
         Object.assign(cantidades, JSON.parse(datosGuardados));
@@ -355,7 +360,7 @@
     function cambiarCantidad(nombre, delta) {
         cantidades[nombre] = Math.max(0, cantidades[nombre] + delta);
         document.getElementById(`cant-${nombre}`).textContent = cantidades[nombre];
-        guardarPedidoEnLocalStorage(); // ✅ guarda cada cambio
+        guardarPedidoEnLocalStorage();
     }
 
     function chequearPedido() {
@@ -385,11 +390,11 @@
     }
 
     function borrarPedido() {
-    if (confirm("¿Seguro que querés borrar todo el pedido?")) {
-        localStorage.removeItem('pedido');
-        location.reload(); // recarga la app limpia
+        if (confirm("¿Seguro que querés borrar todo el pedido?")) {
+            localStorage.removeItem('pedido');
+            location.reload();
+        }
     }
-}
 
     renderLista();
 </script>
